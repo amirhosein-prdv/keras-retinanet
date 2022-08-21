@@ -1,11 +1,13 @@
 # import the necessary packages
 import os
 
-# print(os. getcwd())
-_path = os. getcwd()
+
+# _path = os. getcwd()
+# BASE_PATH = os.path.join(_path, 'code\\dataset')
+
 # Set the dataset base path here
-# BASE_PATH = "D:\Amirhosein\Object Detection\\tag-detection-RetinaNet\Code\Base Code\dataset"
-BASE_PATH = os.path.join(_path, 'code\\dataset')
+BASE_PATH = "\content\Code\dataset"
+
 # print(BASE_PATH)
 
 # build the path to the annotations and input images
