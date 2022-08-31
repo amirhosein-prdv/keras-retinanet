@@ -20,7 +20,7 @@ import argparse
 import os
 import sys
 import warnings
-
+import multiprocessing
 from tensorflow import keras
 import tensorflow as tf
 
@@ -186,8 +186,8 @@ def create_callbacks(model, training_model, prediction_model, validation_generat
                 '{backbone}_{dataset_type}_{{epoch:02d}}.h5'.format(backbone=args.backbone, dataset_type=args.dataset_type)
             ),
             verbose=1,
-            # save_best_only=True,
-            # monitor="mAP",
+            save_best_only=True,
+            monitor="val_loss",
             # mode='max'
         )
         checkpoint = RedirectModel(checkpoint, model)
@@ -206,9 +206,10 @@ def create_callbacks(model, training_model, prediction_model, validation_generat
 
     if args.evaluation and validation_generator:
         callbacks.append(keras.callbacks.EarlyStopping(
-            monitor    = 'mAP',
-            patience   = 5,
+            monitor    = 'val_loss',
+            patience   = 10,
             mode       = 'max',
+            verbose    = 1,
             min_delta  = 0.01
         ))
 
@@ -453,7 +454,7 @@ def parse_args(args):
 
     # Fit generator arguments
     parser.add_argument('--multiprocessing',  help='Use multiprocessing in fit_generator.', action='store_true')
-    parser.add_argument('--workers',          help='Number of generator workers.', type=int, default=1)
+    parser.add_argument('--workers',          help='Number of generator workers.', type=int, default=multiprocessing.cpu_count())
     parser.add_argument('--max-queue-size',   help='Queue length for multiprocessing workers in fit_generator.', type=int, default=10)
 
     return check_args(parser.parse_args(args))
