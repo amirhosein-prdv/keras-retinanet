@@ -1,18 +1,18 @@
 Echo off
 
-SET CSV_class="D:\Amirhosein\Object Detection\tag-detection-retinanet_othernet\Code\dataset\classes.csv"
-set CSV_train="D:\Amirhosein\Object Detection\tag-detection-retinanet_othernet\Code\dataset\train.csv"
-set CSV_val="D:\Amirhosein\Object Detection\tag-detection-retinanet_othernet\Code\dataset\val.csv"
+SET CSV_class="D:\Amirhosein\Object_Detection\tag-detection-retinanet_othernet\Code\dataset\classes.csv"
+set CSV_train="D:\Amirhosein\Object_Detection\tag-detection-retinanet_othernet\Code\dataset\train.csv"
+set CSV_val="D:\Amirhosein\Object_Detection\tag-detection-retinanet_othernet\Code\dataset\val.csv"
 
-set WEIGHT="D:\Amirhosein\Object Detection\tag-detection-retinanet_othernet\Code\pre-train model\mobilenet_1_0_224_tf_no_top.h5"
+set WEIGHT="D:\Amirhosein\Object_Detection\tag-detection-retinanet_othernet\Code\pre-train model\mobilenet_1_0_224_tf_no_top.h5"
 set BACKBONE="mobilenet224_1.0"
 
 set BATCH="1"
 set EPOCH="7"
 set STEP="350"
 
-set SNAPSHOT="D:\Amirhosein\Object Detection\tag-detection-retinanet_othernet\Code\snapshots"
-set TENSORBOARD="D:\Amirhosein\Object Detection\tag-detection-retinanet_othernet\Code\tensorboard"
+set SNAPSHOT="D:\Amirhosein\Object_Detection\tag-detection-retinanet_othernet\Code\snapshots"
+set TENSORBOARD="D:\Amirhosein\Object_Detection\tag-detection-retinanet_othernet\Code\tensorboard"
 
 cls
 
